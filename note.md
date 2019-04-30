@@ -17,6 +17,8 @@
 `$ ls -ah`#显示`.git`默认隐藏目录
 `$ cat` #catenate, `$ cat foo.txt`#显示文件全部内容；`$cat > filename`#创建文件并进入编辑模式；`$ cat >> filename`#对文件追加内容；`cat foo.txt bar.txt > foobar.txt`#合并文件内容
 `$ clear`#清空当前命令行
+`echo 'xxxx'>filename`#生成文件，文件内容为xxxx
+`mv aaaa bbbb`#重命名，把aaaa改成bbbb
 ###把文件添加到版本库
 **在`learngit`目标下编写一个`readme.txt`文件**
 1. `pwd`
@@ -178,3 +180,12 @@
     - `git commit -m"remove gitskill`
     - `git status` `ls`
     - `git remote rm origin git@github.com:000Ken000/gitskill.git`
+**补充**
+`git diff`#对比工作区与暂存区
+`git diff --cached`#对比暂存区与HEAD
+ 对多个文件进行命令操作，用英文空格隔开
+`git log -n8`# 查看最近8个commit记录
+### 指定不需要git管理的文件
+**操作**
+- `vi .gitignore`
+
