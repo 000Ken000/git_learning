@@ -1,4 +1,4 @@
-###安装
+### 安装
 从官网下载安装，终端输入`git --version`检查是否安装成功及版本号
 ### 最小配置
 `$ git config --global user.name "Your Name"`
