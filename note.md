@@ -18,7 +18,7 @@
 `$ cat` #catenate, `$ cat foo.txt`#显示文件全部内容；`$cat > filename`#创建文件并进入编辑模式；`$ cat >> filename`#对文件追加内容；`cat foo.txt bar.txt > foobar.txt`#合并文件内容
 `$ clear`#清空当前命令行
 `echo 'xxxx'>filename`#生成文件，文件内容为xxxx
-`mv aaaa bbbb`#重命名，把aaaa改成bbbb
+`mv aaaa bbbb`#重命名，把aaaa改成bbbb(在git中，如果用mv重命名，相当于把新建新文件名的文件，同时删除旧文件名的文件，要分别再进行添加到暂存区(或删除)`git add/rm`,然后再`git commit`，比较复杂，git自带重命名`git mv`，运行后只要`git commit`就行。
 ###把文件添加到版本库
 **在`learngit`目标下编写一个`readme.txt`文件**
 1. `pwd`
@@ -28,25 +28,44 @@
 **思考**
 `vi readme.txt`# `vi readme.txt`--打开`readme`文件
 为什么git添加文件需要`add`和`commit`两步 #`commit`可以一次提交多文件，所以可多次`add`不同文件。
-###版本控制(时光穿梭机)
+### 版本控制(时光穿梭机)
 **修改`readme.txt`内容**
 1. `$ vi readme.txt`#打开`readme.txt`文件，修改后，`esc`退出编辑模式，输入`:wq!`回车# 强制储存后退出。
 2. `$ git status`#查看仓库当前状态
-3. `$ git diff` #查看具体修改内容，difference
+3. `$ git diff` #工作区与暂存区的对比，查看具体修改内容，diff=difference
 4. `$ git add readme.txt`
 5. `$ git status`
 6. ` $ git commit -m"add distributed"`
 7. `$ git status`
+#### git log查看版本历史
+- `git log`#查看当前分支版本历史
+- `git log --all`#查看所有分支版本历史
+- `git log --all --graph`
+- `git log --oneline`#简洁版
+- `git log -n4`#查看最近4次
+- `git log -n4 --oneline`#查看最近4次简洁版
+- `git log --oneline --all`#所有版本历史简洁版
+- `git log --oneline --xxx`#xx分支的版本历史简洁版
+- `git log --oneline --all --n4`#所有版本最近4次历史简洁版
+- `git log --oneline --all --n4 --graph`#最近4次所有版本历史简洁图形版
+- `git branch -v`#查看本地多少分布，与`git branch -av`有什么区别
+- `git checkout -b xxx aaa`# 创建版本号为aaa的分支，命名为xxx
+- `git commit -am"xxx"`#把工作区的修改直接提交到版本库，不经过添加到暂存区环节
+- `git help --web log`#从浏览器打开git help关于git log的说明文档
 **思考**
-如何从当前的learngit目录跳转到上一级目录进行提交
+如何从当前的learngit目录跳转到上一级目录进行提交?
+- `cd ..`
 **版本回退**
-1. `vi readme.txt` #打开文件编辑，`esc` + 末行`: wq!`回车退出编辑模式，返回命令模式
+1. `vi readme.txt` #打开文件编辑，输入`i`进入文件编辑模式，按`esc`退出编辑模式， 末行输入`: wq!`回车，强调保存并退出文件模式，返回命令模式
 2. `git add readme.txt`
 3. `git commit -m"append GPL"`
 4. `git log`#查看版本提交历史记录，确定回退到哪个版本
 5. `git log --pretty=oneline`
-6. `git reset --hard HEAD^`#`HEAD`表示指向当前版本，`HEAD^`#上一版本，`HEAD^^`#上上版本，`HEAD~100`#上100个版本，`git reset`# 版本回退命令，`git reset --hard commit_id`#在版本的历史之间穿梭
-7. `git reflog`#查看命令历史，确定回到未来哪个版本
+6. `git reset --hard HEAD^`#此命令下去后，暂存区、工作目录下所有的变更都会被清除。
+    - `HEAD`表示指向当前版本，`HEAD^`#上一版本，`HEAD^^`#上上版本，`HEAD~100`#上100个版本，
+    - `git reset`# 版本回退命令，
+    - `git reset --hard commit_id`#在版本的历史之间穿梭
+8. `git reflog`#查看命令历史，确定回到未来哪个版本
 
 #### **补充vi命令知识**
 1. 模式切换
@@ -71,8 +90,9 @@
     - 指向`master`的指针`HEAD`
 ![](/_images/2019-04-29/2019-04-30-09-35-58.png)
 - 把文件往git版本库添加，两步骤:
-    1. `git add`把文件添加到暂存区；
+    1. `git add`把文件添加到暂存区；`git add -u`#把当前git管理的所有工作区内容添加到暂存区
     2. `git commit`把暂存区的**所有内容**提交到当前分支。
+    3. `git mv`#重命名，运行后只要`git commit`就行
 **任务**
 1. `readme.txt`做个修改
 2. 在工作区新增一个`LICENSE`文件文件
