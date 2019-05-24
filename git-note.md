@@ -2,6 +2,7 @@
 ### 安装及配置
 **安装**
 官网下载安装，终端输入`git --version`检查是否安装成功及版本号
+
 **最小配置**
 ` git config --global user.name "Your Name"`
 ` git config --global user.email"email@example.com`
@@ -30,6 +31,7 @@
 `mv aaaa bbbb`#重命名，把aaaa改成bbbb(在git中，如果用mv重命名，相当于把新建新文件名的文件，同时删除旧文件名的文件，要分别再进行添加到暂存区(或删除)`git add/rm`,然后再`git commit`，比较复杂，git自带重命名`git mv`，运行后只要`git commit`就行。
 `pwd` #显示当前工作目录的绝对路径,print working directory
 
+[参考文章](http://itfish.net/article/29711.html)
 ###git 命令
 `git add` # 把工作区内容提交到暂存区，add后面可以加多个文件，包括文件夹
 `git add index.html images/`#把index.html文件和images文件夹提交暂存区
@@ -64,6 +66,8 @@
     - `git reset --hard commit_id`#在版本的历史之间穿梭 `git reflog`#查看命令历史，确定回到未来哪个版本
 `git rm`#删除命令操作，用于删除一个文件
 `git status` # 查看仓库当前状态
+
+[参考文章：](https://www.cnblogs.com/my--sunshine/p/7093412.html)
 ### vi/vim命令
 mac自带vim编辑器
 `vi test.txt`# 在当前目录创建test.txt文本，并打开该文本。或用`vim test.txt`，vim是vi的升级版，指令更多，功能更强。
@@ -244,11 +248,25 @@ repository #仓库
 - 要克隆一个仓库，首先必须知道仓库的地址，然后用`git clone`命令克隆。
 - git支持多种协议，包括`https`,但通过`ssh`支持的原生`git`协议速度最快。(使用`https`速度慢，每次推送必须输入口令)
 
-
 **修改github远程仓库名称**
 - `git remote rm origin` # 在本地仓库删除远程仓库
 - 修改Github仓库名称
 - `git remote add origin git@github.com:your_account_name/new_repo_name.git` #添加新的远程仓库
+
+**从GitHub远程仓库中删除文件夹或文件**
+在上传项目到github时,忘记cd进入某个文件夹,就直接push上去了, 导致把全部仓库的内容都push上其中一个share仓库，最后意识到了此问题,决定删除掉远程仓库中的其中的文件及目录
+在github上只能删除仓库,却无法删除文件夹或文件, 所以只能通过命令来解决
+首先进入你的master文件夹下, Git Bash Here ,打开命令窗口$ git --help 帮助命令
+$ git pull origin master 将远程仓库里面的项目拉下来
+$ dir  查看有哪些文件夹
+$ git rm -r --cached target  删除target文件夹
+$ git commit -m '删除了target'  提交,添加操作说明
+$ git push -u origin master 将本次更改更新到github项目上去
+[参考文章：](https://www.cnblogs.com/zhoumiao/p/8001470.html)
+删除前：
+![](/_images/2019-04-30/2019-05-24-15-01-29.png)
+
+
 **思考** 
 - 仓库及目录重命名
 - 移动仓库及目录文件
