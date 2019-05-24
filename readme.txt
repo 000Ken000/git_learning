@@ -1,4 +1,5 @@
-Git is a distributed version control system.
-Git is free software distributed under the GPL.
-Git has a mutable index called stage.
-Git tracks changes of file.
+通过git学习与实践，期望达到以下目标:
+- 体验编程思维
+- 用命令行提升内容发布效率
+- 提升个人文档管理能力，版本管理，资料备份
+

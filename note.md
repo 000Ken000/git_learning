@@ -55,6 +55,8 @@
 `git branch -v`#查看本地多少分支，与`git branch -av`有什么区别
 `git help --web log`#从浏览器打开git help关于git log的说明文档
 `git push origin master`推送到github。
+`git rm file`# 从staging区移除文件,同时也移除出工作目录.
+`git rm --cached` # 从staging区移除文件,但留在工作目录中.git rm --cached从功能上等同于git reset HEAD,清除了缓存区,但不动工作目录树.
 `git reset HEAD readme.txt`#把转存区的修改撤销掉(unstage),重新放回工作区
  `git reset --hard HEAD^`#此命令下去后，暂存区、工作目录下所有的变更都会被清除。
     - `HEAD`表示指向当前版本，`HEAD^`#上一版本，`HEAD^^`#上上版本，`HEAD~100`#上100个版本，
@@ -220,8 +222,6 @@ repository #仓库
     - `git reset`# 版本回退命令
     - `git reset --hard commit_id`#在版本的历史之间穿梭
 7. `git reflog`#查看命令历史，确定回到未来哪个版本
-
-
 ### 远程仓库
 **操作**
 1. 创建SSH Key: `ssh-keygen -t rsa -C "youremail@example.com"`
@@ -243,7 +243,13 @@ repository #仓库
 **概念**
 - 要克隆一个仓库，首先必须知道仓库的地址，然后用`git clone`命令克隆。
 - git支持多种协议，包括`https`,但通过`ssh`支持的原生`git`协议速度最快。(使用`https`速度慢，每次推送必须输入口令)
-**思考**
+
+
+**修改github远程仓库名称**
+- `git remote rm origin` # 在本地仓库删除远程仓库
+- 修改Github仓库名称
+- `git remote add origin git@github.com:your_account_name/new_repo_name.git` #添加新的远程仓库
+**思考** 
 - 仓库及目录重命名
 - 移动仓库及目录文件
 - 让本地Share、Blog仓库与github远程仓库关联
