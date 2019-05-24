@@ -2,13 +2,14 @@
 ### 安装及配置
 **安装**
 官网下载安装，终端输入`git --version`检查是否安装成功及版本号
-
 **最小配置**
 ` git config --global user.name "Your Name"`
 ` git config --global user.email"email@example.com`
 `git config`命令和`--global`参数，表示对本机所有git仓库都会使用此配置。
+
 ### mac终端命令
-**mac当前位置打开终端** 终端-服务-新建位于文件夹窗口的终端窗口`cmd+0`(标签页`cmd+9`)
+**mac当前位置打开终端** 
+终端-服务-新建位于文件夹窗口的终端窗口`cmd+0`(标签页`cmd+9`)
 `ls` #列出文件，list segment
 `ls -ah`#显示`.git`默认隐藏目录
 `cd` #进入用户主目录
@@ -43,6 +44,7 @@
  `git diff HEAD -- readme.txt`#对比工作区和版本库里最新版本的区别
 `git init` #把这个目录变成git可以管理的仓库，`.git` 用户跟踪管理版本，在本地新建一个repo,进入一个项目目录,执行git init,会初始化一个repo,并在当前文件夹下创建一个.git文件夹.
 `git  log` # 查看git commit历史
+
 **git log查看版本历史**
 `git log`#查看当前分支版本历史
 `git log --all`#查看所有分支版本历史
@@ -305,8 +307,9 @@ $ git push -u origin master 将本次更改更新到github项目上去
 `2 insertions`#插入两行内容
 ### 问题思考
 - git log --oneline返回结果后，在复制输入代码后发现粘贴太多，分行了，无法删除
-![](/_images/2019-04-30/2019-05-24-09-27-18.png)
 
 - **思考**
 为什么git添加文件需要`add`和`commit`两步 #`commit`可以一次提交多文件，所以可多次`add`不同文件。
+
+参与教程: [寥雪峰Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
 
