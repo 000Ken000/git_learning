@@ -19,11 +19,12 @@
 - 如何通过github桌面版clone share仓库下的wiki？
 ![](./_image/2019-04-23-08-33-39.png)
 ![](./_image/2019-04-23-08-34-35.png)
-
+更新：直接用命令行git发布，简浩高效。
 - github文档中的图片在gitpress中拉取不出来？
 ![](./_image/2019-04-23-11-05-38.png)
   - [How to upload images and pictures?](https://gitpress.io/c/helps/faq)
 可能要借助第三方云来搭建图床工具，目前有2种方案:1 是七牛云+腾讯云申请的域名；2 是升级ME为PRO版，赠送一年ME云图床
+190523更新:不想折腾了，我的初衷是培养写作习惯，这阶段不应该花太多精力在这边角上，否则太消耗热情。以前有必要直接在ME上转付费用户。
 
 ## 思考
 - 感觉我一直陷于工具的操作使用层面，并且经常因此页忘记最初需要解决的问题。比如，我最初搭建博客的目的是写作，学习Github使用，各种编辑器的操作技巧，本来是为了更好地服务写作，现在却因此沉迷于工具操作而忘记写作。
@@ -34,4 +35,5 @@
 https://gitpress.io/@lyric/
 
 ##更多
-请仔细阅读[官方说明文档](https://gitpress.io/c/helps/welcome)
+- 请仔细阅读[官方说明文档](https://gitpress.io/c/helps/welcome)
+- [为什么我选择用 Github issues 来写博客](https://mp.weixin.qq.com/s/1guyr383fAMXhS6JYVL2xA)
